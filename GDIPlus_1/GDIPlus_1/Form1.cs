@@ -25,16 +25,27 @@ namespace GDIPlus_1
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            LinearGradientBrush pnlGdt = new LinearGradientBrush(panel1.ClientRectangle,Color.Yellow,Color.Navy,0f,true);
-            e.Graphics.FillRectangle(pnlGdt,panel1.ClientRectangle);
-            pnlGdt.Dispose();
+            //LinearGradientBrush pnlGdt = new LinearGradientBrush(panel1.ClientRectangle,Color.Yellow,Color.Navy,0f,true);
+            //e.Graphics.FillRectangle(pnlGdt,panel1.ClientRectangle);
+            //pnlGdt.Dispose();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-            LinearGradientBrush pnlGdt = new LinearGradientBrush(panel2.ClientRectangle, Color.Yellow, Color.Navy, 90f, true);
-            e.Graphics.FillRectangle(pnlGdt, panel2.ClientRectangle);
-            pnlGdt.Dispose();
+            //LinearGradientBrush pnlGdt = new LinearGradientBrush(panel2.ClientRectangle, Color.Yellow, Color.Navy, 90f, true);
+            //e.Graphics.FillRectangle(pnlGdt, panel2.ClientRectangle);
+            //pnlGdt.Dispose();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddEllipse(panel3.ClientRectangle);
+            PathGradientBrush br = new PathGradientBrush(path);
+            br.CenterPoint = new PointF(panel3.ClientRectangle.Width/2,panel3.ClientRectangle.Height/2);
+            br.CenterColor = Color.Navy;
+            br.SurroundColors = new Color[] { Color.Yellow };
+            e.Graphics.FillPath(br,path);
         }
     }
 }
